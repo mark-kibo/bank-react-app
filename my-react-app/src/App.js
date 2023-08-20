@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import TableItem from "./components/TableItem"
 import TableForm from './components/TableForm';
+import SearchBar from './components/SearchBar';
 
 
 function App() {
@@ -44,11 +45,29 @@ function App() {
   .then(data=>setTransactions([...transactions, data]))
   }
 
+  // handle filter search
+  const handleFilterSearch=(data)=>{
+    console.log(data)
+    let newData=transactions.filter(item=>{
+      return item.description.includes(data)
+    })
+    if(data != null){
+      setTransactions(newData)
+    }
+  }
+
   // render the table
     return (
       <div>
+        <div>
+        <SearchBar filterSearch={handleFilterSearch} />
         <TableForm handleSubmit={postData}/>
-      <Table striped bordered hover>
+
+        </div>
+      
+      <Table striped bordered hover style={
+        {margin: "5px 10px"}
+      }>
         <thead>
           <tr>
             <th>id</th>
