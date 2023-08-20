@@ -3,13 +3,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 
-
+import TableItem from "./components/TableItem"
 
 
 function App() {
   // nitialize data state
-  const [transactiopns, setTransactions]=useState(null)
-
+  const [transactions, setTransactions]=useState(null)
+  let tableData
   // fetch my data from server
   useEffect(()=>{
     fetch("  http://localhost:3000/transactions")
@@ -17,38 +17,28 @@ function App() {
     .then(data=>setTransactions(data))
   }, [])
   // show a prototype of a loader when data has not been fetched
-  if(transactiopns===null){
+  if(transactions===null){
     return <div>Loading...</div>
+  }else{
+    // pass each data to our table item
+    tableData= transactions.map(data=>{
+      console.log(data)
+      return <TableItem data={data}/>  
+    })
   }
     return (
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>id</th>
+            <th>data</th>
+            <th>description</th>
+            <th>category</th>
+            <th>amount</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+            {tableData}
         </tbody>
       </Table>
     );
