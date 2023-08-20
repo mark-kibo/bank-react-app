@@ -5,15 +5,22 @@ import Row from 'react-bootstrap/Row';
 
 import { useState } from 'react';
 
-function SearchBar({filterSearch}){
+function SearchBar({filterSearch, sortData}){
     // set search state
     const [search, setSearch] = useState("");
+    const[sortValue, setSortValue]=useState("default")
 
     // handle search
     const handleSearch = (e) => {
         setSearch(e.target.value);
     }
-    
+
+    // handle sort
+    const handleSort = (e) => {
+        setSortValue(e.target.value);
+        sortData(sortValue)
+    }
+
     return (
         <Form style={{ marginTop: "10px",
         marginLeft: "10px"
@@ -24,6 +31,14 @@ function SearchBar({filterSearch}){
                 handleSearch(e)
                 filterSearch(search)
               }} />
+
+            </Form.Group>
+            <Form.Group as={Col} controlId="formGridsearch">
+            <Form.Select aria-label="Default select example" name='category' onChange={handleSort}>
+              <option>Sort by</option>
+              <option value="category">Category</option>
+              <option value="description">Description</option>
+            </Form.Select>
             </Form.Group>
           </Row>
           </Form>

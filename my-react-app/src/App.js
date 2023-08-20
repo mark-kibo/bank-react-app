@@ -20,6 +20,17 @@ function App() {
     .then(data=>setTransactions(data))
   }, [])
 
+  // handle delete data
+  const handleDeleteData=(id)=>{
+    console.log(id)
+    fetch(`http://localhost:3000/transactions/${id}`,{
+      method:"DELETE"
+    })
+  
+    let newData=transactions.filter(item=>item.id!==id)
+    setTransactions(newData)
+  }
+
   // show a prototype of a loader when data has not been fetched
   if(transactions===null){
     return <div>Loading...</div>
@@ -27,7 +38,7 @@ function App() {
     // pass each data to our table item
     tableData= transactions.map(data=>{
       console.log(data)
-      return <TableItem data={data}/>  
+      return <TableItem data={data} deleteData={handleDeleteData}/>  
     })
   }
 
@@ -55,12 +66,20 @@ function App() {
       setTransactions(newData)
     }
   }
+  // handle sort
+  const handleSort=(data)=>{
+    console.log(transactions)
+    let newData=transactions.sort((a,b)=>{
+      return b[data] - a[data]
+    })
+    setTransactions(newData)
+  }
 
   // render the table
     return (
       <div>
         <div>
-        <SearchBar filterSearch={handleFilterSearch} />
+        <SearchBar filterSearch={handleFilterSearch} sortData={handleSort} />
         <TableForm handleSubmit={postData}/>
 
         </div>

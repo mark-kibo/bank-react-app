@@ -97,20 +97,6 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
-    },
-    {
-      "date": "2023-08-21",
-      "description": "Mail",
-      "category": "Income",
-      "amount": "10000",
-      "id": 15
-    },
-    {
-      "date": "2023-08-21",
-      "description": "water",
-      "category": "Food",
-      "amount": "50",
-      "id": 16
     }
   ]
 }
