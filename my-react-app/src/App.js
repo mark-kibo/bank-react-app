@@ -15,7 +15,7 @@ function App() {
   let tableData
   // fetch my data from server
   useEffect(()=>{
-    fetch("  http://localhost:3000/transactions")
+    fetch("  https://bank-react-app-data.onrender.com/transactions")
     .then(res=>res.json())
     .then(data=>setTransactions(data))
   }, [])
@@ -23,7 +23,7 @@ function App() {
   // handle delete data
   const handleDeleteData=(id)=>{
     console.log(id)
-    fetch(`http://localhost:3000/transactions/${id}`,{
+    fetch(`https://bank-react-app-data.onrender.com/transactions/${id}`,{
       method:"DELETE"
     })
   
@@ -45,7 +45,7 @@ function App() {
   // post data
   const postData=(data)=>{
     console.log(data)
-    fetch("http://localhost:3000/transactions",{
+    fetch("https://bank-react-app-data.onrender.com/transactions",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
