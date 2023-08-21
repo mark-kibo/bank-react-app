@@ -35,9 +35,9 @@ function SearchBar({filterSearch, sortData}){
             </Form.Group>
             <Form.Group as={Col} controlId="formGridsearch">
             <Form.Select aria-label="Default select example" name='category' onChange={handleSort}>
-              <option>Sort by</option>
-              <option value="category">Category</option>
-              <option value="description">Description</option>
+              <option disabled>Sort by</option>
+              <option value="description">Category</option>
+              <option value="category">Description</option>
             </Form.Select>
             </Form.Group>
           </Row>
