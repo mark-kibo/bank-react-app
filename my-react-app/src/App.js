@@ -68,12 +68,29 @@ function App() {
   }
   // handle sort
   const handleSort=(data)=>{
-    console.log(transactions)
-    let newData=transactions.sort((a,b)=>{
-      return b[data] - a[data]
+    console.log(data)
+    let myNewData=[...transactions]
+    // let newData= myNewData.sort((a,b)=>{
+    //   console.log(a.data)
+    //   if(a.data.toLowercase() > b.data.toLowercase()){
+    //     return 1
+    //   }else if(a.data.toLowercase()  < b.data.toLowercase()){
+    //     return -1
+    //   }else{
+    //     return 0
+    //   }
+    // })
+
+    let newData =myNewData.sort((a, b)=>{
+      if(a[data] > b[data]){
+        return 1
+      }else if(a[data] < b[data]){
+        return -1
+      }else{
+        return 0
+      }
     })
     setTransactions(newData)
-    console.log(newData)
   }
 
   // render the table
