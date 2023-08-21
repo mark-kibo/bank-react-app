@@ -59,10 +59,10 @@ function App() {
   // handle filter search
   const handleFilterSearch=(data)=>{
     console.log(data)
-    let newData=transactions.filter(item=>{
-      return item.description.includes(data)
-    })
     if(data != null){
+      let newData=transactions.filter(item=>{
+        return item.description.includes(data)
+      })
       setTransactions(newData)
     }
   }

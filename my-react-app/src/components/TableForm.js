@@ -22,7 +22,7 @@ function TableForm( {handleSubmit} ){
             ...inputData,
             [name]: value
         }
-        // console.log(data)
+        console.log(data)
         setInputData(data)
         
     }
@@ -37,14 +37,15 @@ function TableForm( {handleSubmit} ){
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Add Transaction</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form onSubmit={(e)=>{ e.preventDefault();
-            handleSubmit(inputData)}}>
-            <Form.Control type="date" placeholder="date"  name='date' onChange={getInputs}/>
-            <Form.Control type="text" placeholder="description"  name='description' onChange={getInputs}/>
-            <Form.Select aria-label="Default select example" name='category' onChange={getInputs}>
+            handleSubmit(inputData)
+            handleClose()}}>
+            <Form.Control type="date" placeholder="date"  name='date' onChange={getInputs} style={{margin:"2px"}}/>
+            <Form.Control type="text" placeholder="description"  name='description' onChange={getInputs} style={{margin:"2px"}}/>
+            <Form.Select aria-label="Default select example" name='category' onChange={getInputs} style={{margin:"2px"}}>
               <option>category</option>
               <option value="Income">Income</option>
               <option value="Food">Food</option>
@@ -54,8 +55,8 @@ function TableForm( {handleSubmit} ){
               <option value="Entertainment">Entertainment</option>
               <option value="Fashion">Fashion</option>
                 </Form.Select>
-            <Form.Control type="number" placeholder="amount" name='amount' onChange={getInputs}/> 
-            <Button variant="primary" type='submit'>
+            <Form.Control type="number" placeholder="amount" name='amount' onChange={getInputs} style={{margin:"2px"}}/> 
+            <Button variant="primary" type='submit' style={{margin:"2px"}}>
             add transaction
           </Button>
        </Form>

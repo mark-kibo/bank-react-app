@@ -1,13 +1,6 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "date": "2019-12-01",
-      "description": "Paycheck from Bob's Burgers",
-      "category": "Income",
-      "amount": 1000
-    },
-    {
       "id": 2,
       "date": "2019-12-01",
       "description": "South by Southwest Quinoa Bowl at Fresh & Co",
@@ -97,6 +90,20 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
+    },
+    {
+      "date": "2023-08-21",
+      "description": "Mail",
+      "category": "Income",
+      "amount": "200",
+      "id": 16
+    },
+    {
+      "date": "2023-08-21",
+      "description": "playstation",
+      "category": "Gift",
+      "amount": "200",
+      "id": 17
     }
   ]
 }
