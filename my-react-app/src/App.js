@@ -73,6 +73,7 @@ function App() {
       return b[data] - a[data]
     })
     setTransactions(newData)
+    console.log(newData)
   }
 
   // render the table
