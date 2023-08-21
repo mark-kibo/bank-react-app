@@ -3,11 +3,10 @@ This is a web application built using React, JavaScript, and React Bootstrap tha
 
 # Table of Contents
 - [Features](#features)
-- [Technologies Used] ()
-- [Installation] ()
-- [Usage] ()
-- [Contributing]()
-- [License] ()
+- [Technologies](#technologies-used)
+- [Installation](#Installation)
+- [Usage](#usage)
+- [License](#license)
 # Features
 ## Recent Transactions
 Display a list of recent transactions, including transaction date, description, category, and amount.
@@ -80,5 +79,5 @@ Create a pull request to the original repository, explaining your changes and th
 
 Your pull request will be reviewed, and once approved, your changes will be merged into the main branch.
 
-License
+# License
 This project is licensed under the [MIT License](./LICENSE).
